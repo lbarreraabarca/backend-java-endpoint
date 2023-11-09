@@ -21,7 +21,7 @@ public class Service {
         try {
             if (body == null || body.isEmpty()) throw new RequestException(String.format(INVALID_ATTRIBUTE, "body"));
             log.info("Processing PayLoad.");
-            return new ResponseEntity<>("OK", HttpStatus.OK);
+            return new ResponseEntity<>(body, HttpStatus.OK);
         } catch (ControllerException e){
             String errorMessage = String.format("%s %s", e.getClass(), e.getMessage());
             log.error(errorMessage);
